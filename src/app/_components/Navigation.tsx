@@ -11,9 +11,12 @@ export default function Navigation() {
   };
 
   return (
-    <header className="container mx-auto px-4 py-6 sticky top-0 bg-opacity-50 backdrop-filter backdrop-blur-lg z-50">
+    <header className="container mx-auto px-4 py-2 sticky top-0 bg-opacity-50 backdrop-filter backdrop-blur-lg z-50">
       <nav className="flex justify-between items-center">
-        <Image src="/logo.svg" alt="CodeWay Academy" width={120} draggable={false} height={30} />
+        <label className='relative'>
+          <Image src="/assets/logo-1.svg" alt="CodeWay Academy" width={80} draggable={false} height={30}  />
+          <label className='absolute left-11 top-12 text-xs text-white'>Codeway Academy</label>
+        </label>
         {/* Menu icon for mobile */}
         <div className="block lg:hidden">
           <button
