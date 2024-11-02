@@ -19,7 +19,7 @@ export default function Home() {
 
       <main className="container mx-auto px-4 py-20">
         <section className="text-center">
-          <h1 className="text-5xl font-bold text-white mb-6">Level Up Your Coding Skills</h1>
+          <h1 className="text-6xl font-bold text-white mb-6">Level up your coding skills</h1>
           <p className="text-xl text-teal-100 mb-10 max-w-2xl mx-auto">
             Access top-rated courses from industry experts and become a world-class developer. 
             Learn the latest technologies and advance your career.
