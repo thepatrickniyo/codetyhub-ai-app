@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Navigation() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -13,10 +14,12 @@ export default function Navigation() {
   return (
     <header className="container mx-auto px-4 py-2 sticky top-0 bg-opacity-50 backdrop-filter backdrop-blur-lg z-50">
       <nav className="flex justify-between items-center">
-        <label className='relative'>
+        <Link href="/" className='cursor-pointer'>
+        <label className='relative cursor-pointer'>
           <Image src="/assets/logo-1.svg" alt="CodeWay Academy" width={80} draggable={false} height={30}  />
-          <label className='absolute left-11 top-12 text-xs text-white'>Codeway Academy</label>
+          <label className='absolute left-11 top-12 text-xs text-white cursor-pointer'>Codeway Academy</label>
         </label>
+        </Link>
         {/* Menu icon for mobile */}
         <div className="block lg:hidden">
           <button

@@ -4,6 +4,7 @@ import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
 
 import { TRPCReactProvider } from "@/trpc/react";
+import Navigation from "./_components/Navigation";
 
 export const metadata: Metadata = {
   title: "Create T3 App",
@@ -17,7 +18,15 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${GeistSans.variable}`}>
       <body>
-        <TRPCReactProvider>{children}</TRPCReactProvider>
+        <main className="min-h-screen bg-gradient-to-br from-purple-700 via-blue-600 to-teal-400">
+        <Navigation />
+  
+       <TRPCReactProvider>{children}</TRPCReactProvider>
+  
+        <footer className="container mx-auto px-4 py-6 mt-20 text-center text-teal-200">
+          <p>&copy; 2024 CodeWay Academy. All rights reserved.</p>
+        </footer>
+      </main>
       </body>
     </html>
   );
