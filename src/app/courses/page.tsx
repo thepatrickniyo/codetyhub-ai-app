@@ -1,7 +1,17 @@
 import CourseList from "../_components/CouseList";
 import SearchCourses from "../_components/SearchCourses";
+import { api } from "@/trpc/server";
 
 export default function Courses(){
+    api.course.list()
+    .then((data) => {
+        console.log("in get courses")
+        console.log(data);
+    })
+    .catch((error) => {
+        console.error(error);
+    });
+
     return (
         <main className="px-[2%] md:px-[6%]">
            <section className="mt-[4em] px-4">
