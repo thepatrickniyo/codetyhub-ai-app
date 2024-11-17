@@ -17,7 +17,7 @@ export default function Navigation() {
         <Link href="/" className='cursor-pointer'>
         <label className='relative cursor-pointer'>
           <Image src="/assets/logo-1.svg" alt="CodeWay Academy" width={80} draggable={false} height={30}  />
-          <label className='absolute left-11 top-12 text-xs text-white cursor-pointer'>Codeway Academy</label>
+          <label className='left-11 top-12 text-xs text-white cursor-pointer hidden absolute md:block'>Codeway Academy</label>
         </label>
         </Link>
         {/* Menu icon for mobile */}
