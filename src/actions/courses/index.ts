@@ -17,6 +17,7 @@ export const getCourses = () => {
       date: data.date,
       image: data.image,
       tags: data.tags,
+      price: data.price,
     };
   });
 
