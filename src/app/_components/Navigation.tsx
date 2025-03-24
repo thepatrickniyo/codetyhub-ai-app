@@ -47,7 +47,7 @@ export default function Navigation() {
           <li><a href="#" className="text-white hover:text-teal-200 transition">Courses</a></li>
           <li><a href="#" className="text-white hover:text-teal-200 transition">Paths</a></li>
           <li><a href="#" className="text-white hover:text-teal-200 transition">Pricing</a></li>
-          <li><a href="#" className="text-white hover:text-teal-200 transition">Login</a></li>
+          <li><Link href="/login" className="text-white hover:text-teal-200 transition">Login</Link></li>
         </ul>
       </nav>
 
@@ -79,7 +79,7 @@ export default function Navigation() {
             <li><a href="#" className="text-white text-xl hover:text-teal-200 transition">Courses</a></li>
             <li><a href="#" className="text-white text-xl hover:text-teal-200 transition">Paths</a></li>
             <li><a href="#" className="text-white text-xl hover:text-teal-200 transition">Pricing</a></li>
-            <li><a href="#" className="text-white text-xl hover:text-teal-200 transition">Login</a></li>
+            <li><Link href="/login" className="text-white text-xl hover:text-teal-200 transition">Login</Link></li>
           </ul>
         </div>
       )}
