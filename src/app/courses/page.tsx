@@ -1,12 +1,10 @@
+import CommonRootLayout from "../_components/CommonRootLayout";
 import CourseList from "../_components/CouseList";
 import SearchCourses from "../_components/SearchCourses";
-import { api } from "@/trpc/server";
 
 export default function Courses(){
-    
-
-
     return (
+        <CommonRootLayout>
         <main className="px-[2%] md:px-[6%]">
            <section className="mt-[4em] px-4">
                 <h1 className="text-center text-white font-extrabold text-5xl md:text-5xl lg:text-6xl">
@@ -26,5 +24,6 @@ export default function Courses(){
                 <CourseList />
             </section>
         </main>
+        </CommonRootLayout>
     )
 }
