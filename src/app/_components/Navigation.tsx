@@ -16,8 +16,8 @@ export default function Navigation() {
       <nav className="flex justify-between items-center">
         <Link href="/" className='cursor-pointer'>
         <label className='relative cursor-pointer'>
-          <Image src="/assets/logo-1.svg" alt="CodeWay Academy" width={80} draggable={false} height={30}  />
-          <label className='left-11 top-12 text-xs text-white cursor-pointer hidden absolute md:block'>Codeway Academy</label>
+          <Image src="/assets/logo-1.svg" alt="CodetyHub AI App" width={80} draggable={false} height={30}  />
+          <label className='left-11 top-12 text-xs text-white cursor-pointer hidden absolute md:block'>Codetyhub AI App</label>
         </label>
         </Link>
         {/* Menu icon for mobile */}
@@ -47,7 +47,7 @@ export default function Navigation() {
           <li><a href="#" className="text-white hover:text-teal-200 transition">Courses</a></li>
           <li><a href="#" className="text-white hover:text-teal-200 transition">Paths</a></li>
           <li><a href="#" className="text-white hover:text-teal-200 transition">Pricing</a></li>
-          <li><a href="#" className="text-white hover:text-teal-200 transition">For Teams</a></li>
+          <li><a href="#" className="text-white hover:text-teal-200 transition">Login</a></li>
         </ul>
       </nav>
 
@@ -79,7 +79,7 @@ export default function Navigation() {
             <li><a href="#" className="text-white text-xl hover:text-teal-200 transition">Courses</a></li>
             <li><a href="#" className="text-white text-xl hover:text-teal-200 transition">Paths</a></li>
             <li><a href="#" className="text-white text-xl hover:text-teal-200 transition">Pricing</a></li>
-            <li><a href="#" className="text-white text-xl hover:text-teal-200 transition">For Teams</a></li>
+            <li><a href="#" className="text-white text-xl hover:text-teal-200 transition">Login</a></li>
           </ul>
         </div>
       )}

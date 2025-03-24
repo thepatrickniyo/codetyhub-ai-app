@@ -24,7 +24,7 @@ export default function RootLayout({
        <TRPCReactProvider>{children}</TRPCReactProvider>
   
         <footer className="container mx-auto px-4 py-6 mt-20 text-center text-teal-200">
-          <p>&copy; 2024 CodeWay Academy. All rights reserved.</p>
+          <p>&copy; 2025 Codetyhub AI App. All rights reserved.</p>
         </footer>
       </main>
       </body>

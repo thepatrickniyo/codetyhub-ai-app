@@ -16,10 +16,9 @@ export default function Home() {
       </div>
       <main className="container mx-auto px-4 py-20">
         <section className="text-center">
-          <h1 className="text-6xl font-extrabold text-white mb-6">Level up your coding skills</h1>
+          <h1 className="text-6xl font-extrabold text-white mb-6">Unlock Your Potential: AI Learning, Mentorship & Career Growth for University Students</h1>
           <p className="text-xl text-teal-100 mb-10 max-w-2xl mx-auto">
-            Access top-rated courses from industry experts and become a world-class developer. 
-            Learn the latest technologies and advance your career.
+             Designed for university students, our platform offers AI courses, portfolio building, and mentorship to help you gain real-world skills, connect with experts, and kickstart your career in tech. Start learning today!
           </p>
           <Link href="/courses">
           <button className="bg-white text-purple-700 font-semibold py-3 px-8 rounded-full hover:bg-teal-100 transition duration-300 flex items-center mx-auto">
@@ -46,7 +45,7 @@ export default function Home() {
         </section>
 
         <section className="mt-32 text-center">
-          <h2 className="text-4xl font-bold text-white mb-6">Ready to Become a Pro Developer?</h2>
+          <h2 className="text-4xl font-bold text-white mb-6">Ready to Become a Pro AI Developer?</h2>
           <p className="text-xl text-teal-100 mb-10 max-w-2xl mx-auto">
             Join thousands of developers who have transformed their careers with our curated collection of top-rated courses.
           </p>
