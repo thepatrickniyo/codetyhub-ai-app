@@ -3,10 +3,12 @@ import { ArrowRight, Code, Book, Star } from 'lucide-react';
 import CodeSnippet from './_components/CodeSnippet';
 import DotGrid from './_components/DotGrid';
 import Link from 'next/link';
+import CommonRootLayout from './_components/CommonRootLayout';
 
 
 export default function Home() {
   return (
+    <CommonRootLayout>
     <main>
       <div className="absolute top-[80%] left-[10%] hidden md:block">
         <DotGrid />
@@ -55,5 +57,6 @@ export default function Home() {
         </section>
       </main>
     </main>
+    </CommonRootLayout>
   );
 }
