@@ -70,9 +70,11 @@ const handleEmailLogin = (e: LoginFormEvent): void => {
                 Forgot password?
               </Link>
             </div>
-            <Button type="submit" className="w-full mt-4">
+            <Link href="/dashboard" className="text-sm text-blue-600 hover:underline">
+            <Button type="button" className="w-full mt-4">
               Sign In
             </Button>
+            </Link>
              {/* Divider */}
           <div className="flex items-center my-4">
             <div className="flex-grow border-t border-gray-300"></div>
