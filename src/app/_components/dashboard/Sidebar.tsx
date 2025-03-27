@@ -1,71 +1,59 @@
-"use client"
-import React, { useState } from 'react';
+"use client";
+
+import { usePathname } from "next/navigation";
+import Image from "next/image";
 import { 
   LayoutDashboard, 
   GraduationCap, 
   Users, 
   MessageCircle, 
   Settings, 
-  Sparkles 
-} from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter } from '@/components/ui/card';
-import Image from 'next/image';
+  Sparkles, 
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardFooter } from "@/components/ui/card";
+import Link from "next/link";
 
 export default function DashboardSidebar() {
-  const [activeItem, setActiveItem] = useState('Dashboard');
+  const pathname = usePathname();
 
+  // Define sidebar items with paths
   const sidebarItems = [
-    { 
-      icon: LayoutDashboard, 
-      label: 'Dashboard',
-      onClick: () => setActiveItem('Dashboard')
-    },
-    { 
-      icon: GraduationCap, 
-      label: 'Courses',
-      onClick: () => setActiveItem('Courses')
-    },
-    { 
-      icon: Users, 
-      label: 'Mentors',
-      onClick: () => setActiveItem('Mentors')
-    },
-    { 
-      icon: MessageCircle, 
-      label: 'Messages',
-      onClick: () => setActiveItem('Messages')
-    },
-    { 
-      icon: Settings, 
-      label: 'Settings',
-      onClick: () => setActiveItem('Settings')
-    }
+    { icon: LayoutDashboard, label: "Dashboard", path: "/dashboard" },
+    { icon: GraduationCap, label: "Courses", path: "/dashboard/courses" },
+    { icon: Users, label: "Mentors", path: "/dashboard/mentors" },
+    { icon: MessageCircle, label: "Messages", path: "/dashboard/messages" },
+    { icon: Settings, label: "Settings", path: "/dashboard/settings" },
   ];
 
   return (
     <section className="h-screen w-64 bg-white border-r border-gray-200 flex flex-col">
       {/* Logo Section */}
-      <div className="h-20 pb-4 flex items-center justify-center  ">
-        <label className='relative cursor-pointer'>
-            <Image src="/assets/logo-3.svg" alt="CodetyHub AI App" width={200} draggable={false} height={100}  />
-            <label className='left-11 top-32 text-xs text-blue-700 cursor-pointer hidden absolute md:block font-semibold'>Codetyhub AI App</label>
+      <div className="h-20 pb-4 flex items-center justify-center">
+        <label className="relative cursor-pointer">
+          <Image src="/assets/logo-3.svg" alt="CodetyHub AI App" width={200} draggable={false} height={100} />
+          <span className="left-11 top-32 text-xs text-blue-700 cursor-pointer hidden absolute md:block font-semibold">
+            Codetyhub AI App
+          </span>
         </label>
       </div>
 
-      {/* Navigation Items */}
-      <nav className="flex-grow px-4 py-6 space-y-2">
-        {sidebarItems.map((item) => (
-          <Button
-            key={item.label}
-            variant={activeItem === item.label ? 'secondary' : 'ghost'}
-            className="w-full justify-start px-4 py-2 text-left"
-            onClick={item.onClick}
-          >
-            <item.icon className="mr-3 h-5 w-5" />
-            {item.label}
-          </Button>
-        ))}
+      <nav className="flex-grow px-4 py-6 space-y-2 mt-8">
+        {sidebarItems.map((item) => {
+          const isActive = pathname === item.path;
+          return (
+            <Link 
+              href={item.path} 
+              key={item.label}
+              className={`w-full flex items-center px-4 py-2 rounded-md transition ${
+                isActive ? "bg-blue-500 text-white" : "hover:bg-gray-200"
+              }`}
+            >
+              <item.icon className="mr-3 h-5 w-5" />
+              {item.label}
+            </Link>
+          );
+        })}
       </nav>
 
       {/* Upgrade to Pro Card */}
