@@ -5,6 +5,8 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import GoogleIcon from "@/app/_components/icons/GoogleIcon";
+import { registerUserAction } from "@/actions/auth";
+import { Toaster } from "react-hot-toast";
 
 export default function SignupPage() {
   const [fullName, setFullName] = useState("");
@@ -12,21 +14,38 @@ export default function SignupPage() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
+  
+
   const handleGoogleSignup = () => {
     console.log("Initiating Google Signup");
   };
 
-  const handleSignup = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSignup = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (password !== confirmPassword) {
       alert("Passwords do not match");
       return;
     }
     console.log("Signing up with:", { fullName, email });
+    try {
+      await registerUserAction({
+        full_name: fullName,
+        email,
+        password,
+      })
+      .then((res) => {
+        console.log("Signup successful:", res);
+        // Redirect or show success message
+      
+      })
+    } catch (error) {
+      console.error('Signup failed:', error);
+    }
   };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-blue-100 p-4">
+      <Toaster />
       <Card className="w-full max-w-md shadow-2xl">
         <CardHeader className="text-center">
           <CardTitle className="text-3xl font-bold text-gray-800">
