@@ -7,14 +7,16 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import GoogleIcon from "@/app/_components/icons/GoogleIcon";
 import { registerUserAction } from "@/actions/auth";
 import { Toaster } from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 export default function SignupPage() {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
-  
+  const router = useRouter();
 
   const handleGoogleSignup = () => {
     console.log("Initiating Google Signup");
@@ -28,17 +30,20 @@ export default function SignupPage() {
     }
     console.log("Signing up with:", { fullName, email });
     try {
+      setIsLoading(true);
       await registerUserAction({
         full_name: fullName,
         email,
         password,
       })
       .then((res) => {
+        setIsLoading(false);
         console.log("Signup successful:", res);
         // Redirect or show success message
-      
+        return router.push("/login");
       })
     } catch (error) {
+      setIsLoading(false);
       console.error('Signup failed:', error);
     }
   };
@@ -113,7 +118,7 @@ export default function SignupPage() {
               />
             </div>
             <Button type="submit" className="w-full mt-4">
-              Sign Up
+              {isLoading ? "Signing Up..." : "Sign Up"}
             </Button>
 
             {/* Divider */}

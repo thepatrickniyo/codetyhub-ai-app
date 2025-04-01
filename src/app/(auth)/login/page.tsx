@@ -6,6 +6,9 @@ import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import GoogleIcon from '@/app/_components/icons/GoogleIcon';
 import Link from 'next/link';
+import { loginUserAction } from '@/actions/auth';
+import { useRouter } from 'next/navigation';
+import { Toaster } from 'react-hot-toast';
 
 // Google Icon as an SVG component
 
@@ -13,6 +16,8 @@ import Link from 'next/link';
 export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter();
 
   const handleGoogleLogin = () => {
     // Placeholder for Google OAuth login logic
@@ -23,14 +28,33 @@ interface LoginFormEvent extends React.FormEvent<HTMLFormElement> {
     preventDefault: () => void;
 }
 
-const handleEmailLogin = (e: LoginFormEvent): void => {
+const handleEmailLogin = async (e: LoginFormEvent) => {
     e.preventDefault();
     // Placeholder for email/password login logic
     console.log('Logging in with:', email);
+    try{
+      setIsLoading(true);
+      await loginUserAction({
+        email,
+        password,
+      })
+      .then((res) => {
+        setIsLoading(false);
+        console.log("Login successful:", res);
+        // Redirect or show success message
+        return router.push("/dashboard");
+      }
+      )
+    }
+    catch (error) {
+      setIsLoading(false);
+      console.error('Login failed:', error);
+    }
 };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-blue-100 p-4">
+      <Toaster />
       <Card className="w-full max-w-md shadow-2xl">
         <CardHeader className="text-center">
           <CardTitle className="text-3xl font-bold text-gray-800">Welcome Back</CardTitle>
@@ -70,11 +94,9 @@ const handleEmailLogin = (e: LoginFormEvent): void => {
                 Forgot password?
               </Link>
             </div>
-            <Link href="/dashboard" className="text-sm text-blue-600 hover:underline">
             <Button type="button" className="w-full mt-4">
-              Sign In
+                {isLoading ? 'Logging in...' : 'Login'}
             </Button>
-            </Link>
              {/* Divider */}
           <div className="flex items-center my-4">
             <div className="flex-grow border-t border-gray-300"></div>
