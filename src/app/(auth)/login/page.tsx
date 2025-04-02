@@ -8,7 +8,7 @@ import GoogleIcon from '@/app/_components/icons/GoogleIcon';
 import Link from 'next/link';
 import { loginUserAction } from '@/actions/auth';
 import { useRouter } from 'next/navigation';
-import { Toaster } from 'react-hot-toast';
+import toast, { Toaster } from 'react-hot-toast';
 
 // Google Icon as an SVG component
 
@@ -42,6 +42,7 @@ const handleEmailLogin = async (e: LoginFormEvent) => {
         setIsLoading(false);
         console.log("Login successful:", res);
         // Redirect or show success message
+        toast.success("Login successful");
         return router.push("/dashboard");
       }
       )

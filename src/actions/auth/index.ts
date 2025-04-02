@@ -137,10 +137,10 @@ export async function loginUserAction({
         if (error.response?.errors) {
             // GraphQL errors
             const errorMessage = error.response.errors[0]?.message || "Login failed";
-            toast.error(errorMessage);
+            // toast.error(errorMessage);
         } else {
             // Network or other errors
-            toast.error("Login failed. Please check your connection and try again.");
+            // toast.error("Login failed. Please check your connection and try again.");
         }
         
         console.error("Login error:", error);
